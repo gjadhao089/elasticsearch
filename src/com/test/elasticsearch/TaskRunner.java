@@ -29,11 +29,17 @@ public class TaskRunner {
         //to delete index
         IndexCreation.deleteIndex(client);
         
+        // create department schema
         IndexCreation.createDepartmentSchema(client);
         
+        // store the data in document
         IndexCreation.storeDataInAbove(client);
         
+        // get document by Id
         IndexCreation.getDocbyId(client);
+        
+        // delete single document
+        IndexCreation.deleteDocbyId(client);
            
         } catch (IOException e) {
             e.printStackTrace();

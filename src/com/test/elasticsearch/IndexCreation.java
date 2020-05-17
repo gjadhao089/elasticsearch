@@ -8,6 +8,7 @@ import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexResponse;
 import org.elasticsearch.action.admin.indices.mapping.put.PutMappingRequest;
+import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.support.master.AcknowledgedResponse;
@@ -79,5 +80,13 @@ public class IndexCreation {
 		System.out.println("response "+response.getSourceAsString());
 		
 	}
+	
+	public static void deleteDocbyId(TransportClient client) {
+		DeleteResponse response = client.prepareDelete("department", "_doc", "1").get();		
+		System.out.println("response "+response.getId());			
+		
+	}
+	
+	
 	
 }
